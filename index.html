@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>สวัสดี</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: "Noto Sans Thai", sans-serif;
+      background: linear-gradient(135deg, #ffe6f0, #fff0f5);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      color: #ff66a3;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 3em;
+      margin-bottom: 0.5em;
+      text-shadow: 2px 2px #ffd6e7;
+    }
+
+    p {
+      font-size: 1.2em;
+      margin-bottom: 1.5em;
+    }
+
+    button {
+      background-color: #ffb6c1;
+      border: none;
+      border-radius: 25px;
+      padding: 12px 25px;
+      font-size: 1em;
+      color: white;
+      cursor: pointer;
+      box-shadow: 0 4px 8px rgba(255, 182, 193, 0.4);
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background-color: #ff99bb;
+      transform: scale(1.05);
+    }
+
+    .heart {
+      position: absolute;
+      animation: float 6s infinite ease-in-out;
+      opacity: 0.7;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-50px) rotate(10deg); }
+      100% { transform: translateY(0) rotate(0deg); }
+    }
+  </style>
+</head>
+<body>
+  <h1>ยินดีต้อนรับ 💖</h1>
+  <p>นี่คือเว็บน่ารักๆ ที่ทำด้วยความรักและพาสเทล 🐰🌸</p>
+  <button onclick="alert('ขอบคุณที่คลิกนะคะ 💕')">กดตรงนี้สิ!</button>
+
+  <div class="heart" style="top:10%; left:20%; font-size:2em;">💗</div>
+  <div class="heart" style="top:30%; left:70%; font-size:1.5em;">💖</div>
+  <div class="heart" style="top:60%; left:40%; font-size:1.8em;">💞</div>
+</body>
+</html>
