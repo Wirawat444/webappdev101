@@ -1,71 +1,347 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>สวัสดี</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: "Noto Sans Thai", sans-serif;
-      background: linear-gradient(135deg, #ffe6f0, #fff0f5);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      color: #ff66a3;
-      text-align: center;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wirawat Buttayothi Portfolio - Elevated Design</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Sarabun:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Global Reset and High-Contrast Dark Theme Setup */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-    h1 {
-      font-size: 3em;
-      margin-bottom: 0.5em;
-      text-shadow: 2px 2px #ffd6e7;
-    }
+        /* ธีมหลัก: พื้นหลังดำสนิท (High Contrast) */
+        body {
+            background-color: #0F0F0F; 
+            color: #EFEFEF; /* สีข้อความสว่าง */
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            display: flex;
+            justify-content: center;
+            padding: 80px 30px; /* เพิ่ม Padding ให้มีพื้นที่ว่างมากขึ้น */
+            min-height: 100vh;
+        }
 
-    p {
-      font-size: 1.2em;
-      margin-bottom: 1.5em;
-    }
+        .container {
+            max-width: 1200px;
+            width: 100%;
+        }
 
-    button {
-      background-color: #ffb6c1;
-      border: none;
-      border-radius: 25px;
-      padding: 12px 25px;
-      font-size: 1em;
-      color: white;
-      cursor: pointer;
-      box-shadow: 0 4px 8px rgba(255, 182, 193, 0.4);
-      transition: 0.3s;
-    }
+        /* --- HEADER SECTION (Hero) --- */
+        .hero-section {
+            margin-bottom: 70px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid #282828; /* เส้นแบ่งสีเข้ม */
+        }
 
-    button:hover {
-      background-color: #ff99bb;
-      transform: scale(1.05);
-    }
+        .greeting {
+            font-size: 1.1rem;
+            color: #FF6B6B; /* สีเน้นหลัก: Coral Red */
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
 
-    .heart {
-      position: absolute;
-      animation: float 6s infinite ease-in-out;
-      opacity: 0.7;
-    }
+        h1 {
+            font-size: 4.5rem; /* ขนาดใหญ่ขึ้น */
+            font-weight: 800;
+            margin: 0;
+            color: #FFFFFF;
+            letter-spacing: -2px; /* เพิ่มความคมชัด */
+        }
 
-    @keyframes float {
-      0% { transform: translateY(0) rotate(0deg); }
-      50% { transform: translateY(-50px) rotate(10deg); }
-      100% { transform: translateY(0) rotate(0deg); }
-    }
-  </style>
+        .role {
+            font-size: 1.8rem;
+            font-weight: 300;
+            margin-top: 5px;
+            color: #AAAAAA;
+        }
+
+        /* --- Stats Group (Minimalist but Defined) --- */
+        .stats-group {
+            display: flex;
+            gap: 40px; 
+            margin-top: 40px;
+        }
+
+        .stat-card {
+            padding: 0;
+            text-align: left;
+        }
+
+        .stat-number {
+            display: block;
+            font-size: 2.8rem; /* ใหญ่ขึ้น */
+            font-weight: 700;
+            color: #4ECDC4; /* สีเน้นรอง: Mint Green */
+            line-height: 1;
+        }
+
+        .stat-label {
+            font-size: 0.95rem;
+            color: #AAAAAA;
+            margin-top: 8px;
+            display: block;
+            font-weight: 500;
+        }
+
+
+        /* --- MAIN CONTENT Layout (Sidebar & Projects) --- */
+        .content-grid {
+            display: grid;
+            grid-template-columns: 350px 1fr; /* Sidebar Fixed Width, Projects Fill */
+            gap: 100px; /* พื้นที่ว่างมากเป็นพิเศษ */
+        }
+
+        /* --- Sidebar Info (Focus & Skills) --- */
+        .info-sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .info-card {
+            background-color: #1A1A1A; /* Card พื้นหลังเข้มกว่าเดิม */
+            padding: 30px;
+            border-radius: 10px;
+            border: 1px solid #282828; /* เพิ่มเส้นขอบให้ดูคมขึ้น */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            padding-bottom: 5px;
+            border-bottom: 1px solid #282828; /* เส้นแบ่งใต้ Header */
+        }
+
+        .card-header .icon {
+            font-size: 1.4rem;
+            margin-right: 12px;
+            color: #FF6B6B; /* สีเน้นหลัก */
+        }
+
+        .skills-card .card-header .icon {
+            color: #4ECDC4; /* สีเน้นรอง */
+        }
+
+        .info-card h3 {
+            font-size: 1.3rem;
+            color: #FFFFFF;
+            font-weight: 600;
+        }
+
+        .info-card p {
+            font-family: 'Sarabun', sans-serif;
+            font-size: 1rem;
+            color: #CCCCCC;
+        }
+
+        .skills-card ul {
+            padding-left: 20px;
+            list-style-type: disc; /* ใช้ bullet point มาตรฐาน */
+            color: #4ECDC4;
+        }
+        
+        .skills-card li::marker {
+            color: #4ECDC4;
+        }
+        .skills-card li {
+            font-family: 'Sarabun', sans-serif;
+            font-size: 0.95rem;
+            margin-bottom: 10px;
+            color: #CCCCCC;
+        }
+
+        /* --- Projects Section (Clean Grid) --- */
+        .projects-list h2 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 40px;
+            color: #FFFFFF;
+            border-left: 4px solid #FF6B6B; /* เส้นเน้นหนาขึ้น */
+            padding-left: 20px;
+            letter-spacing: -0.5px;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .project-box {
+            background-color: #1A1A1A;
+            padding: 30px;
+            border-radius: 10px;
+            text-decoration: none;
+            color: inherit;
+            border: 1px solid #282828;
+            transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+        }
+
+        .project-box:hover {
+            transform: translateY(-8px); /* โดดเด่นขึ้น */
+            border-color: #FF6B6B; /* ขอบสีเน้นเมื่อ Hover */
+            box-shadow: 0 12px 25px rgba(255, 107, 107, 0.15); /* เพิ่มแสงเงาอ่อนๆ */
+        }
+
+        .project-tag {
+            font-size: 0.75rem;
+            color: #4ECDC4;
+            margin-bottom: 12px;
+            display: block;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .project-box h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #FFFFFF;
+            margin-bottom: 5px;
+        }
+
+        .subtitle {
+            font-size: 0.95rem;
+            color: #AAAAAA;
+            margin-bottom: 15px;
+        }
+
+        .description {
+            font-family: 'Sarabun', sans-serif;
+            font-size: 0.9rem;
+            color: #777777;
+            line-height: 1.5;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            text-align: center;
+            padding-top: 50px;
+            margin-top: 80px;
+            font-size: 0.85rem;
+            color: #555555;
+            border-top: 1px solid #282828;
+        }
+
+        /* --- Responsive Adjustments --- */
+        @media (max-width: 1080px) {
+            .content-grid {
+                grid-template-columns: 1fr; /* Stack on smaller screens */
+                gap: 50px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            h1 {
+                font-size: 3rem;
+            }
+            .role {
+                font-size: 1.4rem;
+            }
+            .stats-group {
+                flex-wrap: wrap;
+                gap: 20px;
+            }
+            .stat-number {
+                font-size: 2.2rem;
+            }
+            
+            .projects-list h2 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
 </head>
 <body>
-  <h1>ยินดีต้อนรับ 💖</h1>
-  <p>นี่คือเว็บน่ารักๆ ที่ทำด้วยความรักและพาสเทล 🐰🌸</p>
-  <button onclick="alert('ขอบคุณที่คลิกนะคะ 💕')">กดตรงนี้สิ!</button>
 
-  <div class="heart" style="top:10%; left:20%; font-size:2em;">💗</div>
-  <div class="heart" style="top:30%; left:70%; font-size:1.5em;">💖</div>
-  <div class="heart" style="top:60%; left:40%; font-size:1.8em;">💞</div>
+    <div class="container">
+        <header class="hero-section">
+            <p class="greeting">Hello I am</p>
+            <h1>Wirawat Buttayothi</h1>
+            <h2 class="role">UI/UX Designer</h2>
+
+            <div class="stats-group">
+                <div class="stat-card">
+                    <span class="stat-number">1+</span>
+                    <span class="stat-label">Years Design</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">3</span>
+                    <span class="stat-label">Projects</span>
+                </div>
+            </div>
+        </header>
+
+        <main class="content-grid">
+            
+            <section class="info-sidebar">
+                <div class="info-card focus-card">
+                    <div class="card-header">
+                        <span class="icon">💡</span>
+                        <h3>Design Focus</h3>
+                    </div>
+                    <p>การออกแบบที่สวยงามใช้งานได้ง่ายสบายตาสวยๆ</p>
+                </div>
+                
+                <div class="info-card skills-card">
+                    <div class="card-header">
+                        <span class="icon">⚡</span>
+                        <h3>Skills & Tools</h3>
+                    </div>
+                    <ul>
+                        <li>Figma (Advanced Prototyping)</li>
+                        <li>User Research & Testing (Usability)</li>
+                        <li>Prototyping & Wireframing (Figma/Sketch)</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="projects-list">
+                <h2>Selected Projects</h2>
+                <div class="projects-grid">
+                    
+                    <a href="https://www.figma.com/proto/K2wlSawyG6mEnBh9msVz3Y/Cafe-by-me%E0%B9%80%E0%B8%AD%E0%B8%87?node-id=87-1221&p=f&t=k2QUM4vjdiM66I1c-1&scaling=scale-down&content-scaling=fixed&page-id=79%3A818&starting-point-node-id=87%3A1221&show-proto-sidebar=1" target="_blank" class="project-box">
+                        <div class="project-content">
+                            <span class="project-tag">#UX #MOBILE #CAFE</span>
+                            <h3>Cs Cafe</h3>
+                            <p class="subtitle">Cs Cafe</p>
+                            <p class="description">Mobile app UI/UX design for modern cafe experience, focusing on seamless ordering and loyalty programs.</p>
+                        </div>
+                    </a>
+
+                    <a href="https://www.figma.com/proto/4NhiNPQmacM3eKekcsacj0/Untitled?t=TAgQJiSkQw23HkBS-1&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1&node-id=12-52" target="_blank" class="project-box">
+                        <div class="project-content">
+                            <span class="project-tag">#WEB #ICT #DATAVIZ</span>
+                            <h3>Ict Web App</h3>
+                            <p class="subtitle">Show case ICT</p>
+                            <p class="description">Web an app for checking the number of people in the activity room and the location of the activity to make it easy to join the activity.</p>
+                        </div>
+                    </a>
+
+                    <a href="https://www.figma.com/make/JZBwBwD4BqkiGvZ0uJFOQM/Create-New-UX-UI-Design?t=xurvItL9vGd7wUKd-1" target="_blank" class="project-box">
+                        <div class="project-content">
+                            <span class="project-tag">#IOT #SECURITY #SMARTHOME</span>
+                            <h3>Home Security App</h3>
+                            <p class="subtitle">TurtleBot3 Home Security App</p>
+                            <p class="description">Home security app integrated with TurtleBot3 for real-time monitoring, alerts, and remote control capabilities.</p>
+                        </div>
+                    </a>
+                </div>
+            </section>
+        </main>
+        
+        <footer>
+            <p>&copy; 2025 Wirawat Buttayothi — UI/UX Designer</p>
+        </footer>
+    </div>
+
 </body>
 </html>
